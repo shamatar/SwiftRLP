@@ -9,9 +9,6 @@
 import Foundation
 import BigInt
 
-//protocol ArrayType {}
-//extension Array : ArrayType {}
-
 public struct RLP {
     enum Error: Swift.Error {
         case encodingError

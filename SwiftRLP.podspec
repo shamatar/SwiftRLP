@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "SwiftRLP"
-s.version          = "1.0.0"
+s.version          = "1.0.1"
 s.summary          = "RLP implementation in vanilla Swift for iOS ans macOS"
 
 s.description      = <<-DESC

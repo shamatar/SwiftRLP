@@ -5,9 +5,11 @@
 //  Created by Alex Vlasov on 04/10/2018.
 //  Copyright © 2018 Alex Vlasov. All rights reserved.
 //
-
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#else
 #import <Cocoa/Cocoa.h>
-
+#endif
 //! Project version number for SwiftRLP.
 FOUNDATION_EXPORT double SwiftRLPVersionNumber;
 

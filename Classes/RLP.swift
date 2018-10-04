@@ -21,7 +21,7 @@ public struct RLP {
     static var length56 = BigUInt(UInt(56))
     static var lengthMax = (BigUInt(UInt(1)) << 256)
     
-    static func encode(_ element: AnyObject) -> Data? {
+    internal static func encode(_ element: AnyObject) -> Data? {
         if let string = element as? String {
             return encode(string)
             
@@ -186,9 +186,9 @@ public struct RLP {
             indirect case list([RLPItem], Int)
         }
         
-        var content: RLPContent
+        public var content: RLPContent
         
-        var isData: Bool {
+        public var isData: Bool {
             switch self.content {
             case .noItem:
                 return false
@@ -199,7 +199,7 @@ public struct RLP {
             }
         }
         
-        var isList: Bool {
+        public var isList: Bool {
             switch self.content {
             case .noItem:
                 return false
@@ -209,7 +209,7 @@ public struct RLP {
                 return true
             }
         }
-        var count: Int? {
+        public var count: Int? {
             switch self.content {
             case .noItem:
                 return nil
@@ -219,7 +219,7 @@ public struct RLP {
                 return list.count
             }
         }
-        var hasNext: Bool {
+        public var hasNext: Bool {
             switch self.content {
             case .noItem:
                 return false
@@ -230,7 +230,7 @@ public struct RLP {
             }
         }
         
-        subscript(index: Int) -> RLPItem? {
+        public subscript(index: Int) -> RLPItem? {
             get {
                 guard self.hasNext else {return nil}
                 guard case .list(let list, _) = self.content else {return nil}
@@ -239,11 +239,11 @@ public struct RLP {
             }
         }
         
-        var data: Data? {
+        public var data: Data? {
             return self.getData()
         }
         
-        func getData() -> Data? {
+        public func getData() -> Data? {
             if self.isList {
                 return nil
             }
@@ -251,7 +251,7 @@ public struct RLP {
             return data
         }
         
-        static var noItem: RLPItem {
+        public static var noItem: RLPItem {
             return RLPItem.init(content: .noItem)
         }
     }

@@ -1,0 +1,6 @@
+module Pods_SwiftRLP {
+  umbrella header "Pods-SwiftRLP-umbrella.h"
+
+  export *
+  module * { export * }
+}
